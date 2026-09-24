@@ -84,7 +84,7 @@ export async function registerAction(_prev: ActionResult, form: FormData): Promi
   if (data.user && (!data.user.identities || data.user.identities.length === 0))
     return { ok: false, error: d.errors.emailTaken };
   // Welcome email best-effort (§27.1). Link konfirmasi ASLI dikirim Supabase
-  // via SMTP (Resend) — jangan buat token sendiri.
+  // via Brevo SMTP yang dikonfigurasi di Supabase — jangan buat token sendiri.
   const t = tpl.welcome(parsed.data.name, `${appUrl()}/login`);
   await sendEmail({ to: parsed.data.email, subject: t.subject, html: t.html });
   const next = safeNext(String(form.get("next") || ""), "");

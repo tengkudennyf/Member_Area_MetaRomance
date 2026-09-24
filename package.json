@@ -24,7 +24,6 @@
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "react-hook-form": "^7.53.0",
-    "resend": "^4.0.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {

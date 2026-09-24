@@ -15,7 +15,7 @@
 | Signed URL expiration              | ✅     | 900 detik (15 mnt) untuk file produk + bukti admin                                                                               |
 | Input sanitization                 | ✅     | Zod semua input; nama file disanitasi `[^a-zA-Z0-9.-]`; slug regex                                                               |
 | Password hash                      | ✅     | Supabase Auth (bcrypt server-side) — plaintext tidak pernah disimpan                                                             |
-| Secrets                            | ✅     | Service role + Resend hanya `process.env` server; `.env.example` tanpa nilai asli                                                |
+| Secrets                            | ✅     | Service role + Brevo API key hanya `process.env` server; `.env.example` tanpa nilai asli                                         |
 
 Catatan: rate limit in-memory reset saat restart & per-instance — cukup untuk
 MVP single-instance Vercel; naikkan ke Redis saat Phase 7+.

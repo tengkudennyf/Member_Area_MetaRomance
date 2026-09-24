@@ -2,7 +2,7 @@ import net from "net";
 
 // Klien SMTP minimal TANPA dependensi — hanya untuk dev lokal
 // (kirim email aplikasi ke Mailpit/Inbucket di 127.0.0.1:55325).
-// Produksi tetap pakai Resend (lib/email/send.ts). Tidak ada TLS,
+// Produksi tetap pakai Brevo Transactional API (lib/email/send.ts). Tidak ada TLS,
 // tidak ada auth — JANGAN dipakai di production.
 
 function encodeSubject(s: string): string {

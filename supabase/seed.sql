@@ -1,6 +1,6 @@
 -- Seed katalog MVP: 12 produk (dari website utama) + 4 event.
 -- products memakai uuid agar FK order_items/product_access konsisten.
--- Setelah 0001_init.sql.
+-- Jalankan setelah seluruh migration 0001–0007.
 
 -- ===== PRODUCTS (12) =====
 insert into public.products (id, title, slug, description, pillar, product_type, price, original_price, status) values

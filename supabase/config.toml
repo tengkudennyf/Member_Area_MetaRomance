@@ -231,7 +231,7 @@ enable_signup = true
 # addresses. If disabled, only the new email is required to confirm.
 double_confirm_changes = true
 # If enabled, users need to confirm their email address before signing in.
-# ON: daftar → email konfirmasi (token Supabase, kirim via SMTP Resend) → klik link → baru bisa login.
+# ON: daftar → email konfirmasi (token Supabase, kirim via SMTP Brevo) → klik link → baru bisa login.
 enable_confirmations = true
 # If enabled, users will need to reauthenticate or have logged in recently to change their password.
 secure_password_change = false
@@ -245,14 +245,14 @@ otp_expiry = 3600
 # SMTP DIMATIKAN untuk test lokal — email konfirmasi/reset password Supabase
 # ditangkap Inbucket lokal (buka http://127.0.0.1:55324). Daftar pakai email
 # ngawur apa pun, link konfirmasi bisa diklik langsung di sana.
-# Produksi: nyalakan lagi dengan SMTP Resend + domain terverifikasi.
+# Produksi: nyalakan lagi dengan SMTP Brevo + domain terverifikasi.
 # [auth.email.smtp]
 # enabled = true
-# host = "smtp.resend.com"
+# host = "smtp-relay.brevo.com"
 # port = 587
-# user = "resend"
-# pass = "env(RESEND_API_KEY)"
-# admin_email = "noreply@metaromance.com"
+# user = "env(BREVO_SMTP_LOGIN)"
+# pass = "env(BREVO_SMTP_KEY)"
+# admin_email = "noreply@metaromance.web.id"
 # sender_name = "Meta Romance"
 
 # Uncomment to customize email template

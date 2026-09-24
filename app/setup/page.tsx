@@ -5,7 +5,7 @@ import { Card, PageHeader } from "@/components/ui/kit";
 
 export default function SetupPage() {
   const s = setupStatus();
-  const done = s.url && s.publishable && s.service;
+  const done = s.url && s.publishable && s.service && s.brevo;
   const demo = isDemoMode() && !done;
 
   const rows: { label: string; ok: boolean; hint: string }[] = [
@@ -25,9 +25,9 @@ export default function SetupPage() {
       hint: "Project Settings → API Keys → service_role (server saja)",
     },
     {
-      label: "RESEND_API_KEY (opsional — email)",
-      ok: s.resend,
-      hint: "resend.com → API Keys. Tanpa ini email di-skip.",
+      label: "BREVO_API_KEY (email transaksi aplikasi)",
+      ok: s.brevo,
+      hint: "Brevo → Settings → SMTP & API → API Keys. Tanpa ini email aplikasi di-skip.",
     },
     { label: "NEXT_PUBLIC_APP_URL", ok: s.appUrl, hint: "http://localhost:3001 lokal" },
   ];

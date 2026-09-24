@@ -25,14 +25,14 @@ export function setupStatus(): {
   url: boolean;
   publishable: boolean;
   service: boolean;
-  resend: boolean;
+  brevo: boolean;
   appUrl: boolean;
 } {
   return {
     url: !isPlaceholder(process.env.NEXT_PUBLIC_SUPABASE_URL),
     publishable: !isPlaceholder(process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY),
     service: !isPlaceholder(process.env.SUPABASE_SERVICE_ROLE_KEY),
-    resend: Boolean(process.env.RESEND_API_KEY),
+    brevo: Boolean(process.env.BREVO_API_KEY),
     appUrl: Boolean(process.env.NEXT_PUBLIC_APP_URL),
   };
 }
