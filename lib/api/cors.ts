@@ -7,9 +7,9 @@ function allowedOrigins(): string[] {
     process.env.NEXT_PUBLIC_MAIN_SITE_URL,
     process.env.NEXT_PUBLIC_APP_URL,
     process.env.NEXT_PUBLIC_FRONTEND_URL,
-    "https://metaromance.com",
-    "https://www.metaromance.com",
-    "https://member.metaromance.com",
+    "https://metaromance.web.id",
+    "https://www.metaromance.web.id",
+    "https://member.metaromance.web.id",
     "http://localhost:3000",
     "http://localhost:3001",
   ].filter((v): v is string => typeof v === "string" && v.trim().length > 0);

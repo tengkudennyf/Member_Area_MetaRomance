@@ -24,7 +24,7 @@ export async function sendEmail(opts: {
   subject: string;
   html: string;
 }): Promise<{ skipped: boolean; error?: string; via?: string }> {
-  const from = process.env.EMAIL_FROM ?? "Meta Romance <noreply@metaromance.com>";
+  const from = process.env.EMAIL_FROM ?? "Meta Romance <noreply@metaromance.web.id>";
   // B6: gagal kirim JANGAN diam — log + kembalikan error agar caller bisa
   // membuat notifikasi internal/admin dan menjadwalkan retry manual.
   try {
@@ -86,3 +86,4 @@ export async function notifyEmailFailure(
     message: `Email "${input.subject}" gagal terkirim (${input.error}). Cek manual / kirim ulang via admin.`,
   });
 }
+
