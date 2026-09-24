@@ -1,0 +1,136 @@
+@import "tailwindcss";
+@custom-variant dark (&:is(.dark *));
+
+/* §6–7 + PRD warna: BoardUI structure + Meta Romance tokens, dark default.
+   Komponen memakai semantic tokens — bukan raw hex. */
+@theme {
+  --color-background: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface2: var(--surface2);
+  --color-surface-hover: var(--surface-hover);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-on-accent: var(--on-accent);
+  --color-foreground: var(--fg);
+  --color-faint: var(--faint);
+  --color-border: var(--border);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-dmserif), ui-serif, Georgia, serif;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+}
+
+@layer base {
+  :root {
+    --bg: #f4f4f5; /* zinc-100 */
+    --surface: #ffffff;
+    --surface2: #f4f4f5; /* zinc-100 */
+    --surface-hover: #e4e4e7; /* zinc-200 */
+    --secondary: #e4e4e7;
+    --muted: #71717a; /* zinc-500 */
+    --accent: #18181b; /* zinc-900 */
+    --accent-hover: #27272a; /* zinc-800 */
+    --on-accent: #ffffff;
+    --fg: #09090b; /* zinc-950 */
+    --faint: #71717a;
+    --border: #e4e4e7; /* zinc-200 */
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+  }
+
+  .dark {
+    --bg: #09090b; /* zinc-950 */
+    --surface: #09090b; /* BoardUI deep dark */
+    --surface2: #18181b; /* zinc-900 */
+    --surface-hover: #27272a; /* zinc-800 */
+    --secondary: #27272a;
+    --muted: #a1a1aa; /* zinc-400 */
+    --accent: #fafafa; /* zinc-50 */
+    --accent-hover: #e4e4e7; /* zinc-200 */
+    --on-accent: #09090b; /* zinc-950 */
+    --fg: #fafafa;
+    --faint: #a1a1aa;
+    --border: #27272a; /* zinc-800 */
+    --success: #10b981;
+    --warning: #d9b26a;
+    --danger: #ef4444;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+  }
+}
+
+/* Fullscreen reader: iframe isi penuh, tanpa gap bawah. */
+.reader-secure:fullscreen {
+  background: #000;
+  padding: 12px;
+}
+.reader-secure:fullscreen iframe {
+  height: calc(100vh - 24px) !important;
+  border-radius: 12px;
+}
+
+/* Anti-bajak baca: sembunyikan area reader saat print, tampilkan notice. */
+.print-only {
+  display: none;
+}
+@media print {
+  .reader-secure {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
+
+@layer utilities {
+  .lift {
+    transition:
+      transform 200ms ease,
+      border-color 200ms ease,
+      background 200ms ease;
+  }
+  .lift:hover {
+    transform: translateY(-2px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lift {
+      transition: none;
+    }
+    .lift:hover {
+      transform: none;
+    }
+  }
+  .skeleton {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-surface2);
+  }
+  .skeleton::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+    animation: shimmer 1.4s infinite;
+  }
+  @keyframes shimmer {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+}
